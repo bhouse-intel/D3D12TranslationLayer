@@ -136,6 +136,7 @@ if (NOT IMPLEMENT_RECTS)
 endif()
 
 include(CheckIncludeFileCXX)
+set(CMAKE_REQUIRED_INCLUDES "C:/Program Files (x86)/Windows Kits/10/include/10.0.22000.0/um")
 CHECK_INCLUDE_FILE_CXX(d3d12TokenizedProgramFormat.hpp HAS_WDK)
 
 if (HAS_WDK)
@@ -151,6 +152,7 @@ if (HAS_WDK)
 		../include/ShaderBinary.h
         ../include/SharedResourceHelpers.hpp)
 	target_link_libraries(d3d12translationlayer_wdk d3d12translationlayer)
+    target_include_directories(d3d12translationlayer_wdk PUBLIC "C:/Program Files (x86)/Windows Kits/10/include/10.0.22000.0/um")
 
 else()
     message(WARNING "Only adding SDK-dependent projects.")
