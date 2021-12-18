@@ -3,6 +3,8 @@
 cmake_minimum_required(VERSION 3.13)
 include(CheckCXXSourceCompiles)
 
+include_directories("C:/Users/bhouse/.nuget/packages/winpixeventruntime/1.0.161208001/Include/WinPixEventRuntime")
+
 set(SRC
 	Allocator.cpp
 	BatchedContext.cpp
@@ -111,6 +113,7 @@ if (HAVE_DXCORE_LIBRARY)
 else()
 	target_compile_definitions(d3d12translationlayer PRIVATE DYNAMIC_LOAD_DXCORE=1)
 endif()
+
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/../packages.config ${CMAKE_CURRENT_BINARY_DIR}/packages.config COPYONLY)
 add_library(WinPixEventRuntime INTERFACE IMPORTED GLOBAL)
